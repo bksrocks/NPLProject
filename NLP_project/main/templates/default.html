@@ -1,10 +1,103 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MAIN PAGE</title>
+    <title>Create your poem</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Font Installation -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Square+Peg&family=Yeseva+One&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+    <script src="{% static 'main/model00/main.js' %}" type="text/javascript"></script>
+    <script>
+      function printPoem() {
+        let poem = document.getElementById("main_text").value;
+        document.getElementById("poemOutput").innerHTML = poem
+        return poem
+      }
+    </script>
+
+    <style>
+    body {
+        font-family: 'Yeseva One', cursive;
+        font-size: 15px;
+        text-align: justify;
+        background-color: #faedcd;
+    }
+
+    h1   {
+        font-size: 40px;
+        text-align: center;
+        color: #ccd5ae;
+        background-color: #fefae0;
+    }
+
+    div.box    {
+        font-family: 'Zen Kurenaido', sans-serif;
+        text-align: center;
+        font-size: 20px;
+        margin: 5px;
+        padding: 15px;
+    }
+
+    div.titles      {
+        font-size: 80px;
+        font-family: 'Zen Kurenaido', sans-serif;
+        text-align: center;
+        color: #d4a373;
+        text-transform: uppercase;
+        padding: 15px;
+    }
+    input       {
+        background-color: #fefae0;
+        color: #ccd5ae;
+        border: 5px solid;
+        width: 50%;
+    }
+    button        {
+        background-color: #fefae0;
+        color: #ccd5ae;
+        border: 5px solid;
+    }
+    p       {
+        font-family: 'Square Peg', cursive;
+        color: #ccd5ae;
+        padding: 15px;
+        font-size: 40px;
+        text-align: center;
+    }
+    poem-box        {
+        width: 800px;
+    }
+    </style>
 </head>
 <body>
+    <div class="titles">
+        Create your poem
+    </div>
+    <h1>Use the box bellow to start writing your poem. <br>
+        The words come from a database of Oscar Wilde's work.</h1>
+    <div class="box" id="all_suggestions">
 
+    </div>
+
+    <div class="box" >
+        <label for="main_text">
+
+        </label>
+        <input id="main_text" autofocus onkeyup="writePoem()" placeholder="Start typing..." />
+        <button type="button" onclick="printPoem()">Done</button>
+    </div>
+    <div class="poem-box">
+        <p id="poemOutput"></p>
+    </div>
 </body>
 </html>
