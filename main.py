@@ -8,6 +8,8 @@ from tensorflow.keras.optimizers import Adam
 import numpy as np
 import matplotlib.pyplot as plt
 
+import tensorflowjs as tfjs
+
 tokenizer = Tokenizer(
     filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
     lower=True,
@@ -156,3 +158,4 @@ for _ in range(next_words):
         seed_text = seed_text
 
 print(seed_text)
+tfjs.converters.save_keras_model(model, "NLP_project/main/static/main/model00")

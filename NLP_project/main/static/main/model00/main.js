@@ -1,12 +1,21 @@
-let availableTags = [`house`, `boat`, `the`]
+import * as tf from '@tensorflow/tfjs';
+import * as model from './model';
+
+
+let availableTags = []
+
+const model = await tf.loadLayersModel('NLP_project/main/static/main/model00/model.json');
 
 function writePoem()
 {
-    // Make the prediction
-    availableTags = [`house`, `boat`, `the`]
 
+    let seed_text = $("#main_text")
+    availableTags = []
+    best_words = return_best_words(seed_text, {
+        "num_of_words": 3
+    });
     for (let i = 0; i < 20; i++)
-        availableTags.push(`New suggestion ${Math.random(100)}`)
+        availableTags.push()
 
     $("#main_text").autocomplete({
         source: availableTags
