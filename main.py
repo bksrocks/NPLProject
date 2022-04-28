@@ -45,7 +45,9 @@ for line in corpus:
 
 # pad sequences
 max_sequence_len = max([len(x) for x in input_sequences])
-input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding='pre'))
+input_sequences = np.array(pad_sequences(input_sequences,
+                                         maxlen=max_sequence_len,
+                                         padding='pre'))
 
 # create predictors and label
 xs, labels = input_sequences[:, :-1], input_sequences[:, -1]
@@ -56,8 +58,9 @@ model = Sequential()
 model.add(Embedding(total_words, 100, input_length=max_sequence_len - 1))
 model.add(Bidirectional(LSTM(150)))
 model.add(Dense(total_words, activation='softmax'))
-adam = Adam(learning_rate=0.01)
-model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
+adam = Adam(learning_rate=0.001)
+model.compile(loss='categorical_crossentropy', optimizer=adam,
+              metrics=['accuracy'])
 history = model.fit(xs, ys, epochs=10, verbose=1)
 print(model)
 
@@ -71,7 +74,8 @@ def plot_graphs(history, string):
 
 def return_best_words(seed_text_input, num_of_words):
     token_list = tokenizer.texts_to_sequences([seed_text_input])[0]
-    token_list = pad_sequences([token_list], maxlen=max_sequence_len - 1, padding='pre')
+    token_list = pad_sequences([token_list], maxlen=max_sequence_len - 1,
+                               padding='pre')
 
     predicted = model.predict(token_list, verbose=0)
     predicted = np.argsort(predicted)
