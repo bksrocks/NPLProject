@@ -7,7 +7,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
 import numpy as np
 import matplotlib.pyplot as plt
-
+import json
 import tensorflowjs as tfjs
 
 tokenizer = Tokenizer(
@@ -27,6 +27,9 @@ total_words = len(tokenizer.word_index) + 1
 
 print(tokenizer.word_index)
 print(total_words)
+
+with open("NLP_project/main/static/main/model00/token.json", "w") as file:
+    json.dump(tokenizer.word_index, file)
 
 # We can go from word to index using "word_index"
 # But we need to be able to do the opposite (from index to word)
@@ -64,7 +67,7 @@ adam = Adam(learning_rate=0.001)
 model.compile(loss='categorical_crossentropy', optimizer=adam,
               metrics=['accuracy'])
 history = model.fit(xs, ys, epochs=10, verbose=1)
-print(model)
+
 
 
 def plot_graphs(history, string):
