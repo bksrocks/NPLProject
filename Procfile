@@ -1,1 +1,1 @@
-web: gunicorn MLDjango.wsgi --log-level debug
+web: gunicorn NLP_project.wsgi --log-level debug
