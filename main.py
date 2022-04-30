@@ -30,6 +30,7 @@ print(total_words)
 
 with open("NLP_project/main/static/main/model00/token.json", "w") as file:
     json.dump(tokenizer.word_index, file)
+    print("file created")
 
 # We can go from word to index using "word_index"
 # But we need to be able to do the opposite (from index to word)
