@@ -21,5 +21,4 @@ from main import views
 urlpatterns = [
     path('', views.default_page),
     path('admin/', admin.site.urls),
-    # path('model/', views.model),
 ]

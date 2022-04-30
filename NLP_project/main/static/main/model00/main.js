@@ -3,14 +3,14 @@ let availableTags = []
 const modelLoc = "./model00/"
 
 async function createModel(){
-    // const model = await tf.loadLayersModel('file://NLP_project/main/static/main/model00/model.json');
-    const model = await tf.loadLayersModel('https://poem-maker.s3.amazonaws.com/static/main/model00/model.json')
+    const model = await tf.loadLayersModel("https://poem-maker.s3.amazonaws.com/static/main/model00/model.json");
+    console.log(model.summary())
     return model
 }
 
 function getTokenisedWord(seedText) {
-    const token = modelLoc + "token.json"
-    const wordToken = token[seedText.toLowerCase()]
+    const token = modelLoc + "token.json";
+    const wordToken = token[seedText.toLowerCase()];
     return tf.tensor1d([wordToken])
 }
 
@@ -28,8 +28,8 @@ async function returnBestWords(seedText){
 
 function writePoem()
 {
-    let seedText = $("#main_text")
-    availableTags = ['the', 'hello', 'goodmorning']
+    let seedText = $("#main_text");
+    availableTags = ['the', 'hello', 'goodmorning'];
     bestWords = returnBestWords(seedText);
     for (let i = 0; i < 20; i++)
         availableTags.push()

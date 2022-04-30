@@ -148,6 +148,12 @@ STATICFILES_DIRS = [
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+ALLOWED_HOSTS = [
+    'http://localhost:8000',
+    "http://127.0.0.1",
+    "https://poem-maker.s3.amazonaws.com",
+    "127.0.0.1",
+]
 
 CORS_ALLOWED_ORIGINS = [
     # "https://domain.com",
