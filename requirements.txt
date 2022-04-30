@@ -3,7 +3,6 @@ asgiref==3.5.0
 astunparse==1.6.3
 boto3==1.22.4
 botocore==1.25.4
-cached-property @ file:///home/conda/feedstock_root/build_artifacts/cached_property_1615209429212/work
 cachetools==5.0.0
 certifi==2021.10.8
 charset-normalizer==2.0.12
@@ -18,8 +17,6 @@ gast==0.5.3
 google-auth==2.6.6
 google-auth-oauthlib==0.4.6
 google-pasta==0.2.0
-grpcio @ file:///Users/runner/miniforge3/conda-bld/grpcio_1648220738213/work
-h5py @ file:///Users/runner/miniforge3/conda-bld/h5py_1637964045648/work
 idna==3.3
 importlib-metadata==4.11.3
 jmespath==1.0.0
@@ -29,7 +26,7 @@ kiwisolver==1.4.2
 libclang==13.0.0
 Markdown==3.3.6
 matplotlib==3.5.1
-numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1649806371887/work
+numpy
 oauthlib==3.2.0
 opt-einsum==3.3.0
 packaging==21.3
