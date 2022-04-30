@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -148,19 +147,45 @@ STATICFILES_DIRS = [
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-ALLOWED_HOSTS = [
-    'http://localhost:8000',
-    "http://127.0.0.1",
-    "https://poem-maker.s3.amazonaws.com",
-    "127.0.0.1",
+# ALLOWED_HOSTS = [
+#     'http://localhost:8000',
+#     "http://127.0.0.1",
+#     "https://poem-maker.s3.amazonaws.com",
+#     "127.0.0.1",
+#     "http://127.0.0.1:8000",
+# ]
+
+ALLOWED_HOSTS = ['*']
+
+# CORS_ALLOWED_ORIGINS = [
+#     # "https://domain.com",
+#     # "https://api.domain.com",
+#     "http://localhost:8000",
+#     "http://127.0.0.1:8000",
+#     "https://poem-maker.s3.amazonaws.com",
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    # "https://domain.com",
-    # "https://api.domain.com",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "https://poem-maker.s3.amazonaws.com",
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
 ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+
