@@ -1,12 +1,10 @@
-
-
 let availableTags = []
 
 const modelLoc = "./model00/"
 
 async function createModel(){
     // const model = await tf.loadLayersModel('file://NLP_project/main/static/main/model00/model.json');
-    const model = await tf.loadLayersModel('https://poem-maker.s3.amazonaws.com/model.json')
+    const model = await tf.loadLayersModel('https://poem-maker.s3.amazonaws.com/static/main/model00/model.json')
     return model
 }
 

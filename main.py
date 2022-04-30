@@ -68,6 +68,7 @@ model.compile(loss='categorical_crossentropy', optimizer=adam,
               metrics=['accuracy'])
 history = model.fit(xs, ys, epochs=10, verbose=1)
 
+print(model)
 
 
 def plot_graphs(history, string):
