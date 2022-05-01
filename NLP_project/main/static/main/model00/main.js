@@ -3,14 +3,15 @@ let availableTags = []
 const modelLoc = "./model00/"
 
 async function createModel(){
-    const model = await tf.loadLayersModel("https://poem-maker.s3.amazonaws.com/static/main/model00/model.json");
+    const model = await tf.loadLayersModel(modelLoc + "model.json");
     console.log(model.summary())
     return model
 }
 
 function getTokenisedWord(seedText) {
     const token = modelLoc + "token.json";
-    const wordToken = token[seedText.toLowerCase()];
+    let seed = JSON.stringify(seedText)
+    const wordToken = token[seed.toLowerCase()];
     return tf.tensor1d([wordToken])
 }
 
